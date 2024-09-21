@@ -1,9 +1,13 @@
 {
   "name": "exchange-rates-api",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "description": "An API wrapper around exchangeratesapi.io",
-  "main": "src/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "build": "tsc && babel dist --out-dir dist/cjs",
+    "bundle-dts": "dts-bundle --name exchange-rates-api --main dist/index.d.ts --out index.d.ts --removeSource --outputAsModuleFolder",
     "test": "NODE_ENV=test mocha",
     "docs": "./node_modules/jsdoc/jsdoc.js -c ./.jsdoc.conf.json"
   },
@@ -14,17 +18,23 @@
   },
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.24.0",
     "date-fns": "^1.30.1",
-    "isomorphic-fetch": "^2.2.1"
+    "typescript": "^5.6.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.25.6",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
     "chai": "^4.2.0",
+    "dts-bundle": "^0.7.3",
     "eslint": "^7.24.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "fetch-mock": "^7.3.3",
     "jsdoc": "^3.6.2",
     "minami": "^1.2.3",
-    "mocha": "^6.1.4"
+    "mocha": "^6.1.4",
+    "rollup": "^3.29.5"
   }
 }

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["es2022", "dom"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "removeComments": true,
+    "sourceMap": false,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "types": []
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}

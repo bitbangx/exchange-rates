@@ -1,4 +1,4 @@
-module.exports = {
+export const currencies = {
   AUD: 'AUD',
   BRL: 'BRL',
   GBP: 'GBP',

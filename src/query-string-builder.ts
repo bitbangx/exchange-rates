@@ -1,7 +1,5 @@
-class QueryStringBuilder {
-  constructor() {
-    this._obj = {};
-  }
+export class QueryStringBuilder {
+  private _obj: { [key: string]: string } = {};
 
   /**
    * Build and return the query string
@@ -27,9 +25,9 @@ class QueryStringBuilder {
    * @param {boolean} [encode=true]   Whether to encode the key and value or not
    * @return {QueryStringBuilder}     The instance on which this method was called
    */
-  addParam(key, val, encode = true) {
-    const paramKey = (encode) ? encodeURIComponent(key) : key;
-    const paramVal = (encode) ? encodeURIComponent(val) : val;
+  addParam(key: string, val: string, encode = true) {
+    const paramKey = encode ? encodeURIComponent(key) : key;
+    const paramVal = encode ? encodeURIComponent(val) : val;
 
     this._obj[paramKey] = paramVal;
     return this; // chainable
@@ -59,5 +57,3 @@ class QueryStringBuilder {
     return this._build();
   }
 }
-
-module.exports = QueryStringBuilder;
